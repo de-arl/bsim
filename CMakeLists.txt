@@ -229,12 +229,6 @@ install(
   PATTERN ".*" EXCLUDE)
 
 install(
-  DIRECTORY ${PROJECT_SOURCE_DIR}/src/R
-  DESTINATION ${INSTALL_DIR}
-  FILES_MATCHING PATTERN "*"
-  PATTERN ".*" EXCLUDE)
-
-install(
   FILES ${PROJECT_SOURCE_DIR}/src/examples/simulation.toml
   DESTINATION ${INSTALL_DIR}/config
   RENAME simulation_parameters_default.toml)
