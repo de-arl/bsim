@@ -1,6 +1,6 @@
 # bsim
 ---
-bsim is an agent-based simulation framework for simulating bats in a 3D environment.
+bsim is a general agent-based simulation framework, originally intended only for simulating bats in a 3D environment.
 A technical report containing some screenshots can be found in the 'doc' directory.
 The code is well documented in the source files.
 
