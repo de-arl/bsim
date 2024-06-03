@@ -1,0 +1,86 @@
+### Basic settings for the simulation #########################################
+
+[OpenGL]
+  
+  # Shader directory
+  shader_dir = "shaders"
+
+  # Shader program
+  shader_id = 0
+
+### Appearance ot the Graphical User Interface (GUI) ##########################
+
+[GUI]
+
+  # Window dimensions
+  window_width = 1024
+  window_height = 768
+
+  # Font
+  font_dir = "config/fonts/"
+  font_file = "Roboto-Medium.ttf"
+
+  # Font size
+  font_size = 16
+
+### Appearance of the animation ###############################################
+
+[General]
+
+  # Background color
+  background_color = [ 0.0, 0.032, 0.181 ] # nocturnal blue
+
+### Apaperance of the Bounding Box ############################################
+
+[BoundingBox]
+
+  # Bounding box color
+  bounding_box_color = [ 1.0, 1.0, 1.0 ] # white
+
+  show_bounding_box = true
+
+### Appearance of the grid ####################################################
+
+[Grid]
+
+  # Grid color
+  grid_color = [ 0.5, 0.5, 0.5 ] # gray
+
+  # Number of gridlines in the interval [-1,1]
+  num_gridlines = 10 
+
+  # Autoselect gridlines based on view angle
+  autoselect_grids = true
+
+  # Show grid
+  show_grid = true
+
+### Appearance of the axes ####################################################
+
+[Axes]
+
+  # Axes color
+  axes_color = [ 1.0, 1.0, 1.0 ] # white
+
+  # Tick color
+  tick_color = [ 1.0, 1.0, 1.0 ] # white
+
+  # Label color
+  label_color = [ 1.0, 1.0, 1.0 ] # white
+
+  # Number of ticks in the interval [-1,1]
+  num_ticks = 10
+
+  # Tick length
+  tick_length = [ 0.05, 0.05, 0.05, 0.0, 0.0, 0.0 ] 
+
+  show_axes = true
+
+  show_ticks = true
+
+  show_labels = true
+
+###############################################################################
+
+
+  

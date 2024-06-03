@@ -1,0 +1,4 @@
+bsim
+build
+.*
+!.gitignore
