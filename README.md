@@ -4,35 +4,9 @@ bsim is an agent-based simulation framework for simulating bats in a 3D environm
 A technical report containing some screenshots can be found in the 'doc' directory.
 The code is well documented in the source files.
 
-## Compilation
-
-Check wether dependencies for the desired module are installed.
-
-```
-    Create build directory: 
-    $ mkdir build 
-    $ cd build
-    
-    Configure build:
-    $ ccmake ..
-
-    Compile and install:
-    $ make install
-```
-
-## Dependencies
-
-### ANIMATION module
-- GLM: OpenGL math library [(source)](https://github.com/g-truc/glm)
-- GLAD: OpenGL Loader (library included) [(website)](https://github.com/Dav1dde/glad)
-- GLFW: OpenGL Graphics Library Framework [(website)](https://www.glfw.org/) [source](https://github.com/glfw/glfw.git)
-- WebP Codec [(website)](https://developers.google.com/speed/webp) [source](https://chromium.googlesource.com/webm/libwebp)
-- x265 Codec [(website)](https://www.videolan.org/developers/x265.html)  
-- FFmpeg [(website)](https://ffmpeg.org/)  
-- OpenMP: Parallel programming API [(website)](https://www.openmp.org/).  
-
-### PAPI module
-- Performance Application Programming Interface PAPI [(website)](https://icl.utk.edu/papi/)  
+## Installation
+See doc/INSTALL.md for installation instructions.
+After successful installation you can try the program with the provided example configuration files.
 
 ## Configuration files
 Example configuration files are provided in the 'config' directory.
@@ -57,6 +31,12 @@ Run:
 to see the available options.
 
 ## Usage with Graphical User Interface
+When you first start the program, the simulation will start with the default parameters.
+Click 'Simulation->Animate' to see the scenery.
+Then navigate to the 'Simulation->Simulation control' menu and opent the tab 'Simulation control' to start the simulation.
+
+---
+
 Parameters can be loaded and edited under the Parameters Menu.
 Make sure to click all apply buttons to apply changes.
 The simulation can be controlled in the Simulation control menu.
