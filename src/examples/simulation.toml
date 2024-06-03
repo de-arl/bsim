@@ -1,389 +1,155 @@
-### Define simulation parameters ###############################################
-
-# These parameters can be overwritten by command line arguments
-# Time internally has no unit, you can use any unit you like, but it has to be
-# consistent for sizes, distances, speed and time. For example, if you use
-# meters for sizes and distances, seconds for time, then speed is in m/s.
-# It is recommended to use SI units (meter and seconds).
+# Simulation parameters
 
 [simulation]
-
-  # simulated time in seconds
   simulated_time = 86400
-
-  # time step in seconds per simulation iteration
   dt = 1
-
-  # timespan over which metrics are averaged in seconds
-  # The software takes the average of the metrics over this timespan
-  metrics_timespan = 10
-
-  # seed for random number generator, 0 for random seed
   seed = 0
-
-  # number of runs
   num_runs = 1
-
-  # memory size, number of states stored in memory, choose any number > 2
   memory_size = 10
 
-  
-### Define worlsize in meters #################################################
-
 [world]
-
-  # [x, y, z], axes from -x to +x, -y to +y, -z to +z 
-  worldsize = [ 1000,   
-                1000,  
-                1000 ] 
-
-
-### Define agent classes ######################################################
-
-# All agent classes defined here will be instantiated as classes of agents 
-# and must be defined in the following sections. Class names must be unique.
+  worldsize = [1600, 1000, 100]
 
 [agent_class_params]
-
-  classes = [ "male_bats", "female_bats", "owls", "insects" ]
-
-
-### Add configuration section for each class ##################################
-
-# define for each class the following parameters: 
-
-# Class characteristics:
-# - name of the class, (don't use spaces):  name
-# - strategy of the class:                  strategy
-# - status of the class agents:             status
-# - audibility range in meters:             audibility
-# - number of objects:                      number
-# - size of the animal in meters:           size
-
-# - maximal movespeed in m/s:               movespeed
-# A fraction of the maximal movespeed can be defined for different purposes:
-# - movespeed for approaching food:         movespeed_approach_food
-# - movespeed for avoiding enemies:         movespeed_avoid_enemies
-# - movespeed for approaching friends:      movespeed_approach_friends
-# - movespeed for search:                   movespeed_search
-
-# Levy Seach parameters:
-# - Levy exponent:                          c_levy
-# - Levy shift:                             mu_levy
-
-# Brownian motion parameters:
-# - Time spent in brownian search:          brownian_search_duration
-
-# Energy parameters:
-# - initial energy, normally distributed:   mu_energy, sigma_energy
-# - energy consumption per second:          energy_consumption_per_second
-# - energy consumption per meter:           energy_consumption_per_meter
-
-# Animation parameters:
-# - color of the animals in RGB:          color
-# - pointsize of the animals:             pointsize
-
+  classes = ["male_bats", "female_bats", "owls", "insects", "plants"]
 
 [male_bats]
-
-  # number of agents 
-  num_agents = 10
-
-  # friends
-  friends = [ "male_bats" ]
-
-  # enemies
-  enemies = [ "owls" ]
-
-  # food_sources
-  food_sources = [ "insects" ]
-
-  # strategy of agents
-  strategy = 1
-
-  # Status of the agents
+  id = 0
+  friends = [  "male_bats" ]
+  enemies = [  "owls" ]
+  food_sources = [  "insects" ]
+  strategy = 3
   status = 1
-
-  # audibility range in meters
-  audibility = 100
-
-  # initial energy, normally distributed
-  mu_energy = 10000
+  num_agents = 250
+  audibility = 300
+  mu_energy = 100000
   sigma_energy = 1000
-
-  # energy uptake rate in energy per time 
-  energy_uptake_rate = 1.0
-
-  # maximal movespeed in m/s
-  movespeed = 12
-
-  # Fraction of the maximum speed for approaching food
-  movespeed_approach_food = 1.0
-
-  # Fraction of the maximum speed for escaping
-  movespeed_avoid_enemies = 1.0
-
-  # Fraction of the maximum speed for approaching friends
-  movespeed_approach_friends = 1.0
-
-  # Fraction of the maximum speed for search
-  movespeed_search = 1.0
-
-  # Levy exponent
+  energy_uptake_rate = 10
+  mu_levy = 0
   c_levy = 0.5
-
-  # Levy shift
-  mu_levy = 0.0
-
-  # Time spent in brownian search
   brownian_search_duration = 10
-
-  # energy consumption per second 
+  movespeed_search = 0.3
+  movespeed_approach_friends = 0.5
+  movespeed_avoid_enemies = 1
+  movespeed_approach_food = 0.8
+  movespeed = 12
   energy_consumption_per_time = 0.1
-
-  # energy consumption per meter
   energy_consumption_per_distance = 0.1
-
-  # size of agents in meters
   size = 0.1
-
-  # starting position of agents
-  start_position = [ 0, 0, 0 ]
-
-  # start individually at random positions instead of start_position
-  random_start_positions = false 
-
-  # color of agents in RGB
-  color = [ 0.5, 0.75, 1.0 ]
-
-  # pointsize of agents 
+  start_position = [ 0.000000, 0.000000, 0.000000 ]
+  random_start_positions = 0
+  color = [ 0.500000, 0.750000, 1.000000 ]
   pointsize = 3
 
 [female_bats]
-
-  # number of agents 
-  num_agents = 10
-
-  # friends
-  friends = [ "female_bats" ]
-
-  # enemies
-  enemies = [ "owls" ]
-
-  # food_sources
-  food_sources = [ "insects" ]
-
-  # strategy of agents
-  strategy = 1
-
-  # Status of the agents
+  id = 1
+  friends = [  "female_bats" ]
+  enemies = [  "owls" ]
+  food_sources = [  "insects" ]
+  strategy = 3
   status = 1
-
-  # audibility range in meters
-  audibility = 100
-
-  # initial energy, normally distributed
-  mu_energy = 10000
+  num_agents = 250
+  audibility = 300
+  mu_energy = 100000
   sigma_energy = 1000
-
-  # energy uptake rate in energy per second
-  energy_uptake_rate = 1.0
-
-  # maximal movespeed in m/s
-  movespeed = 10
-
-  # Fraction of the maximum speed for approaching food
-  movespeed_approach_food = 1.0
-
-  # Fraction of the maximum speed for escaping
-  movespeed_avoid_enemies = 1.0
-
-  # Fraction of the maximum speed for approaching friends
-  movespeed_approach_friends = 1.0
-
-  # Fraction of the maximum speed for search
-  movespeed_search = 1.0
-
-  # Levy exponent
+  energy_uptake_rate = 10
+  mu_levy = 0
   c_levy = 0.5
-
-  # Levy shift
-  mu_levy = 0.0
-
-  # Time spent in brownian search
   brownian_search_duration = 10
-
-  # energy consumption per second
-  energy_consumption_per_time = 0.15
-
-  # energy consumption per meter
+  movespeed_search = 0.3
+  movespeed_approach_friends = 0.5
+  movespeed_avoid_enemies = 1
+  movespeed_approach_food = 0.8
+  movespeed = 10
+  energy_consumption_per_time = 0.1
   energy_consumption_per_distance = 0.1
-
-  # size of agents in meters
   size = 0.1
-
-  # starting position of agents
-  start_position = [ 0, 1, 0 ]
-
-  # start individually at random positions instead of start_position
-  random_start_positions = false 
-
-  # color of agents in RGB
-  color = [ 1.0, 0.75, 0.8 ] 
-
-  # pointsize of agents 
+  start_position = [ 0.000000, 1.000000, 0.000000 ]
+  random_start_positions = 0
+  color = [ 1.000000, 0.750000, 0.800000 ]
   pointsize = 3
-
 
 [owls]
-
-  # number of agents 
-  num_agents = 10
-
-  # friends
-  friends = [ "owls" ]
-
-  # enemies
-  enemies = [ "none" ]
-
-  # food_sources
-  food_sources = [ "male_bats", "female_bats" ]
-
-  # strategy of agents
+  id = 2
+  friends = [  "owls" ]
+  enemies = [  "none" ]
+  food_sources = [  "male_bats",  "female_bats" ]
   strategy = 1
-
-  # Status of the agents
   status = 1
-
-  # audibility range in meters
+  num_agents = 5
   audibility = 50
-
-  # initial energy, normally distributed
-  mu_energy = 1000
-  sigma_energy = 0
-
-  # energy uptake rate in energy per second
-  energy_uptake_rate = 100
-
-  # maximal movespeed in m/s
-  movespeed = 15
-
-  # Fraction of the maximum speed for approaching food
-  movespeed_approach_food = 1.0
-
-  # Fraction of the maximum speed for escaping
-  movespeed_avoid_enemies = 1.0
-
-  # Fraction of the maximum speed for approaching friends
-  movespeed_approach_friends = 1.0
-
-  # Fraction of the maximum speed for search
-  movespeed_search = 1.0
-
-  # Levy exponent
+  mu_energy = 1e+06
+  sigma_energy = 1000
+  energy_uptake_rate = 1000
+  mu_levy = 0
   c_levy = 0.5
-
-  # Levy shift
-  mu_levy = 0.0
-
-  # Time spent in brownian search
   brownian_search_duration = 10
-
-  # energy consumption per second
-  energy_consumption_per_time = 0.2
-
-  # energy consumption per meter
-  energy_consumption_per_distance = 0.2
-
-  # size of agents in meters
+  movespeed_search = 0.5
+  movespeed_approach_friends = 0.5
+  movespeed_avoid_enemies = 1
+  movespeed_approach_food = 1
+  movespeed = 15
+  energy_consumption_per_time = 1
+  energy_consumption_per_distance = 1
   size = 1
-
-  # starting position of agents
-  start_position = [ 0, 0, 2 ]
-
-  # start individually at random positions instead of start_position
-  random_start_positions = false 
-
-  # color of agents in RGB
-  color = [1.0, 0.0, 0.0] 
-
-  # pointsize of agents 
-  pointsize = 3
-
+  start_position = [ 0.000000, 0.000000, 2.000000 ]
+  random_start_positions = 1
+  color = [ 1.000000, 0.000000, 0.000000 ]
+  pointsize = 5
 
 [insects]
-  
-  # number of agents 
-  num_agents = 10 
-
-  # friends
-  friends = [ "insects" ]
-
-  # enemies
-  enemies = [ "male_bats", "female_bats" ]
-
-  # food_sources
-  food_sources = [ "none" ]
-
-  # strategy of agents
-  strategy = 1
-
-  # Status of the agents
+  id = 3
+  friends = [  "insects" ]
+  enemies = [  "male_bats",  "female_bats" ]
+  food_sources = [  "plants" ]
+  strategy = 6
   status = 1
-
-  # audibility range in meters
-  audibility = 30
-
-  # initial energy, normally distributed
-  mu_energy = 200
-  sigma_energy = 50
-
-  # energy uptake rate in energy per second
-  energy_uptake_rate = 0.0
-
-  # maximal movespeed in m/s
-  movespeed = 0
-
-  # Fraction of the maximum speed for approaching food
-  movespeed_approach_food = 1.0
-
-  # Fraction of the maximum speed for escaping
-  movespeed_avoid_enemies = 1.0
-
-  # Fraction of the maximum speed for approaching friends
-  movespeed_approach_friends = 1.0
-
-  # Fraction of the maximum speed for search
-  movespeed_search = 1.0
-
-  # Levy exponent
+  num_agents = 500
+  audibility = 100
+  mu_energy = 10
+  sigma_energy = 1
+  energy_uptake_rate = 0.1
+  mu_levy = 0
   c_levy = 0.5
-
-  # Levy shift
-  mu_levy = 0.0
-
-  # Time spent in brownian search
   brownian_search_duration = 10
-
-  # energy consumption per second
-  energy_consumption_per_time = 0.1
-
-  # energy consumption per meter
-  energy_consumption_per_distance = 0.0
-
-  # size of agents in meters
+  movespeed_search = 0.3
+  movespeed_approach_friends = 0.5
+  movespeed_avoid_enemies = 1
+  movespeed_approach_food = 0.5
+  movespeed = 2
+  energy_consumption_per_time = 0.001
+  energy_consumption_per_distance = 0.001
   size = 10
-
-  # starting position of agents
-  start_position = [ 0, 0, 0 ]
-
-  # start individually at random positions instead of start_position
-  random_start_positions = true
-
-  # color of agents in RGB 
-  color = [0, 0.5, 0]
-
-  # pointsize of agents 
+  start_position = [ 0.000000, 0.000000, 0.000000 ]
+  random_start_positions = 1
+  color = [ 1.000000, 0.987342, 0.000000 ]
   pointsize = 2
 
-#  vim: set ts=2 sw=2 tw=0 et :
+[plants]
+  id = 4
+  friends = [  "none" ]
+  enemies = [  "insects" ]
+  food_sources = [  "none" ]
+  strategy = 0
+  status = 1
+  num_agents = 25
+  audibility = 500
+  mu_energy = 1000
+  sigma_energy = 200
+  energy_uptake_rate = 0
+  mu_levy = 0
+  c_levy = 0.5
+  brownian_search_duration = 10
+  movespeed_search = 1
+  movespeed_approach_friends = 1
+  movespeed_avoid_enemies = 1
+  movespeed_approach_food = 1
+  movespeed = 2
+  energy_consumption_per_time = -1
+  energy_consumption_per_distance = 0
+  size = 50
+  start_position = [ 0.000000, 0.000000, 0.000000 ]
+  random_start_positions = 1
+  color = [ 0.000000, 0.500000, 0.000000 ]
+  pointsize = 10
+
