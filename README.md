@@ -79,10 +79,6 @@ If set to a value greater than 0, the agent will perform a brownian search for t
 > `$ ./bsim -c my_simulation_parameters.toml -s 1 -t 1000 -n 3 -d 1 -l 1 -v 1`
 > Run simulation in terminal mode with given simulation config, random seed 1, 1000 time steps, 3 runs, time step 1, log level 1, verbose level 1.
 
-## Notes
-For small problem sizes parallelization overhead outweighs runtime benefits. 
-Therefor make sure you choose an efficient level of parallelism by compiling PAPI and OMP module and running several test with different numbers of processes to find the most efficient number of threads to use. 
-
 ## Author
 
 The program can be freely used without any warranty under the terms of the MIT license.
